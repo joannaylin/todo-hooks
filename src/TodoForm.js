@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
-import useInputState from "./hooks/useInputState.js"
+import useInputState from "./hooks/useInputState.js";
 
-export default function TodoForm(props) {
-  const [value, handleChange, reset] = useInputState("")
+export default function TodoForm({ addTodo }) {
+  const [value, handleChange, reset] = useInputState("");
   return (
     <Paper>
-      <TextField value={value} onChange={handleChange} />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          addTodo(value);
+          reset();
+        }}
+      >
+        <TextField value={value} onChange={handleChange} />
+      </form>
     </Paper>
   );
 }
