@@ -9,7 +9,7 @@ import TodoForm from "./TodoForm.js";
 
 export default function TodoApp() {
   const initialTodos = [
-    { id: 1, task: "study algos", completed: false },
+    { id: 1, task: "study algos", completed: true },
     { id: 2, task: "apply to jobs", completed: false },
     { id: 3, task: "sleep", completed: false },
   ];
