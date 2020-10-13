@@ -7,14 +7,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 import TodoList from "./TodoList.js";
 import TodoForm from "./TodoForm.js";
+import useLocalStorageState from "./hooks/useLocalStorageState";
 
 export default function TodoApp() {
-  const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]")
+  const initialTodos = [{id: 1, task: "Pet a monkey", completed: false}];
   const {todos, addTodo, removeTodo, toggleTodo, editTodo} =useTodoState(initialTodos);
-  
-  useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos))
-  }, [todos])
 
   return (
     <Paper
